@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:manejadoresdeestados/services/usuario_services.dart';
 
 class OnePage extends StatelessWidget {
   
@@ -12,7 +13,11 @@ class OnePage extends StatelessWidget {
        ),
 
 
-       body: InformacionUsuario(),
+       body: usuarioService.existeUsuario
+        ? InformacionUsuario()
+        : Center(
+          child: Text("no hay informacion del usuario")
+        ),
 
        floatingActionButton: FloatingActionButton(
          child: Icon(Icons.next_plan_outlined),
